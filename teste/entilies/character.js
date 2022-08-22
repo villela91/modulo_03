@@ -1,12 +1,12 @@
 import { randomUUID } from "node:crypto";
-
-export class character {
+export class CharacterEntity {
   constructor(character, userId) {
-    this.id =character.id ?? randomUUID();
-    this.name = characterr.name;
+    this.id = character.id ?? randomUUID();
+    this.name = character.name;
     this.image = character.image;
     this.userId = userId;
   }
+
   getCharacter() {
     return {
       id: this.id,

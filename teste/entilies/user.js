@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { characterEntity } from "./character";
+import { CharacterEntity } from "./character.js";
 
 export class UserEntity {
   constructor(user) {
@@ -12,14 +12,16 @@ export class UserEntity {
   }
 
   validate() {
-    if (!this.email || !this.password || this.name || this.image) {
+    if (!this.email || !this.password || !this.name || !this.image) {
       throw new Error("Invalid user");
     }
   }
-  addcharacters(character) {
-    const newCharacter = new characterEntity(character, this.id);
-    this.character.push(newCharacter.getcharacter());
+
+  addCharacter(character) {
+    const newCharacter = new CharacterEntity(character, this.id);
+    this.characters.push(newCharacter.getCharacter());
   }
+
   getUser() {
     const user = {
       id: this.id,
@@ -27,8 +29,9 @@ export class UserEntity {
       email: this.email,
       password: this.password,
       image: this.image,
-      characters: this.character,
+      characters: this.characters,
     };
+
     return user;
   }
 }
