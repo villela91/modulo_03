@@ -1,3 +1,5 @@
+import { UserEntity } from "../../../entities/user.js";
+
 export class FindUserByIdUseCase {
   constructor(userRepository) {
     this.repository = userRepository;

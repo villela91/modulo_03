@@ -1,3 +1,5 @@
+import { UserEntity } from "../../../entities/user.js";
+
 export class DeleteUserUseCase {
     constructor(userRepository) {
       this.repository = userRepository;
