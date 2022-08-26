@@ -1,9 +1,9 @@
-export class FindCreateAllCharacterCase{
-    constructor ( characterRepository){
-        this.repository = characterRepository;
-
+export class FindAllCharacterUseCase {
+    constructor(characterRepository) {
+      this.repository = characterRepository;
     }
-    async execute(){
-        return await this.repository.find();
+  
+    async execute() {
+      return await this.repository.findAll();
     }
-}
+  }

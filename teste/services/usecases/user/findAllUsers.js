@@ -1,9 +1,8 @@
-export class findAllUsersUseCase{
-    constructor(userRepository){
-        this.userRepository = userRepository;
-
+export class FindAllUsersUseCase {
+    constructor(userRepository) {
+      this.repository = userRepository;
     }
-    async execute(){
-        return await this.userRepository.findAll();
+    async execute() {
+      return await this.repository.findAll();
     }
-}
+  }

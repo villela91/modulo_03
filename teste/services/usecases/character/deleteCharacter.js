@@ -1,13 +1,13 @@
-export class DeleteCharacterUserCase {
-    constructor (characterRepository){
-        this.repository = CharacterRepository;
-
+export class DeleteCharacterUseCase {
+    constructor(characterRepository) {
+      this.repository = characterRepository;
     }
-    async execute(characterId){
-        const deleteCharacter = await this.repository.deleteCharacter(characterId);
-        if(!deletedCharacter){
-            throw new Error(`Could not delete choracter ${characterId}`);
-        }
-        return deletedCharacter;
+  
+    async execute(characterId) {
+      const deletedCharacter = await this.repository.deleteCharacter(characterId);
+      if (!deletedCharacter) {
+        throw new Error(`Could not delete character ${characterId}`);
+      }
+      return deletedCharacter;
     }
-}
+  }
