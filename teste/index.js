@@ -1,4 +1,4 @@
-import express from "express";
+import express , {Router} from "express";
 import cors from "cors";
 
 import { MongoDbConnection } from "./database/mongo/connection/connect.js";
@@ -9,10 +9,10 @@ const ConnectDb = new MongoDbConnection();
 await ConnectDb.ConnectDb();
 
 const app = express();
-const {Router} = express;
+const router = Router();
 
-const user = makeUserFactory(Router);
-const character = makeCharacterFactory(Router);
+const user = makeUserFactory(router);
+const character = makeCharacterFactory(router);
 
 app.use(express.json());
 app.use(cors());

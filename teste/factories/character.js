@@ -9,7 +9,7 @@ import { DeleteCharacterUseCase } from "../services/usecases/character/deleteCha
 import { FindUserByIdUseCase } from "../services/usecases/user/findUserByld.js";
 import { Services } from "../services/service.js";
 import { CharacterController } from "../controller/characterController.js";
-import { makeUserFactory } from "../routes/characterRoutes.js";
+import { CharacterRoutes } from "../routes/characterRoutes.js";
 
 export function makeCharacterFactory(router) {
   const characterRepository = new CharacterRepositoryMongoDb();
@@ -51,7 +51,7 @@ export function makeCharacterFactory(router) {
     findCharacterByNameUseCase
   );
 
-  const characterRoutes = new makeUserFactory(characterController, router);
+  const characterRoutes = new CharacterRoutes(characterController, router);
 
   return characterRoutes;
 }

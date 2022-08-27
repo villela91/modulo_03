@@ -5,6 +5,7 @@ export class UserRoutes {
     }
   
     route() {
+
       this.router.get("/", (req, res) => this.userController.find(req, res));
       this.router.post("/create", (req, res) =>
         this.userController.create(req, res)
