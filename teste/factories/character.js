@@ -1,15 +1,15 @@
-import { CharacterRepositoryMongoDb } from "../database/repositories/characterRepository.js";
-import { UserRepositoryMongoDb } from "../database/repositories/userRepository.js";
+import { CharacterRepositoryMongoDb } from "../database/repository/characterRepository.js";
+import { UserRepositoryMongoDb } from "../database/repository/userRepository.js";
 import { CreateCharacterUseCase } from "../services/usecases/character/createCharacter.js";
 import { UpdateCharacterUseCase } from "../services/usecases/character/updateCharacter.js";
-import { FindAllCharacterUseCase } from "../services/usecases/character/findAllCharacters.js";
+import { FindAllCharacterUseCase } from "../services/usecases/character/findAllcharacter.js";
 import { FindCharacterByIdUseCase } from "../services/usecases/character/findCharacterById.js";
 import { FindCharacterByNameUseCase } from "../services/usecases/character/findCharacterByName.js";
 import { DeleteCharacterUseCase } from "../services/usecases/character/deleteCharacter.js";
-import { FindUserByIdUseCase } from "../services/usecases/user/findUserById.js";
+import { FindUserByIdUseCase } from "../services/usecases/user/findUserByld.js";
 import { Services } from "../services/service.js";
-import { CharacterController } from "../controllers/characterController.js";
-import { CharacterRoutes } from "../routes/characterRoutes.js";
+import { CharacterController } from "../controller/characterController.js";
+import { makeUserFactory } from "../routes/characterRoutes.js";
 
 export function makeCharacterFactory(router) {
   const characterRepository = new CharacterRepositoryMongoDb();
@@ -51,7 +51,7 @@ export function makeCharacterFactory(router) {
     findCharacterByNameUseCase
   );
 
-  const characterRoutes = new CharacterRoutes(characterController, router);
+  const characterRoutes = new makeUserFactory(characterController, router);
 
   return characterRoutes;
 }
