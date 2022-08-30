@@ -1,3 +1,4 @@
+import { authentication } from "../midlewares/auth.js";
 export class UserRoutes {
     constructor(controller, router) {
       this.userController = controller;
